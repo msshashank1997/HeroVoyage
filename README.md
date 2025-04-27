@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./.png" alt="Hero-Voyage Banner" width="600"/>
+  <img src="./static/HeroVoyage.png" alt="Hero-Voyage Banner" width="600"/>
 </p>
 
 # 🚂 Hero-Voyage: Train Booking Platform
