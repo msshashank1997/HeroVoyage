@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Hero-Voyage</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .admin-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+        .btn-red {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #e90101;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-red:hover {
+            background-color: #b30000;
+        }
+        footer {
+            background-color: #ffffffee;
+            color: rgb(7, 7, 7);
+            padding: 10px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        footer a {
+            color: #e90101; /* Red link color */
+            text-decoration: none; /* No underline */
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Panel</h1>
+        <p>Manage Transports</p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Departure</th>
+                <th>Available Seats</th>
+            </tr>
+            {% for t in transports %}
+            <tr>
+                <td>{{ t.train_number }}</td>
+                <td>{{ t.train_name }}</td>
+                <td>{{ t.source }}</td>
+                <td>{{ t.destination }}</td>
+                <td>{{ t.departure_time }}</td>
+                <td>{{ t.available_seats }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('logout') }}" class="btn-red">Logout</a>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2025 Hero-Voyage. All Rights Reserved. Created by <a href="https://herovired.com/" target="_blank">HeroVired</a>.</p>
+    </footer>
+</body>
+</html>

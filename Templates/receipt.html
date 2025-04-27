@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt - Hero-Voyage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes the full height of the viewport */
+            margin: 0;
+            background-color: #ffffff; /* White background */
+            font-family: 'Arial', sans-serif;
+            color: #333; /* Neutral text color */
+        }
+        .receipt-container {
+            text-align: center;
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 600px; /* Compact width for a professional look */
+            background: #f9f9f9; /* Light gray background for the container */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
+            flex-grow: 1; /* Ensures the container takes up available space */
+        }
+        h2 {
+            color: #e90101; /* Red text for the title */
+            font-weight: bold;
+        }
+        .btn-danger {
+            background-color: #e90101; /* Red button */
+            color: #fff; /* White text */
+            border: none;
+            font-weight: bold;
+        }
+        .btn-danger:hover {
+            background-color: #b30000; /* Darker red on hover */
+            color: white;
+        }
+        footer {
+            background-color: #f9f9f9; /* Light gray background for footer */
+            color: #333; /* Neutral text color */
+            padding: 10px 0;
+            text-align: center;
+            border-top: 1px solid #ddd; /* Subtle border for separation */
+        }
+        footer a {
+            color: #e90101; /* Red link color */
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <h2>Ticket Booking Receipt</h2>
+        <p><strong>Train Name:</strong> {{ receipt.train_name }}</p>
+        <p><strong>Train Number:</strong> {{ receipt.train_number }}</p>
+        <p><strong>Seats Booked:</strong> {{ receipt.seats }}</p>
+        <p><strong>Coach Number:</strong> {{ receipt.coach_number }}</p>
+        <p><strong>Seat Numbers:</strong> {{ receipt.seat_numbers }}</p>
+        <p class="text-danger">Thank you for choosing Hero-Voyage!</p>
+        <a href="#" class="btn btn-danger mt-3" onclick="downloadReceipt()">Download Receipt</a>
+        <br><br>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">Back to Home</a>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2025 Hero-Voyage. All Rights Reserved. Created by <a href="https://herovired.com/" target="_blank">HeroVired</a>.</p>
+    </footer>
+
+    <script>
+        // Pass receipt details dynamically to JavaScript
+        const receiptDetails = {
+            trainName: "{{ receipt.train_name | escape }}",
+            trainNumber: "{{ receipt.train_number | escape }}",
+            seats: "{{ receipt.seats | escape }}",
+            coachNumber: "{{ receipt.coach_number | escape }}",
+            seatNumbers: "{{ receipt.seat_numbers | escape }}"
+        };
+
+        function downloadReceipt() {
+            const receiptContent = `
+                Ticket Booking Receipt
+                ----------------------
+                Train Name: ${receiptDetails.trainName}
+                Train Number: ${receiptDetails.trainNumber}
+                Seats Booked: ${receiptDetails.seats}
+                Coach Number: ${receiptDetails.coachNumber}
+                Seat Numbers: ${receiptDetails.seatNumbers}
+                ----------------------
+                Thank you for choosing Hero-Voyage!
+            `;
+            const blob = new Blob([receiptContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'receipt.txt';
+            link.click();
+        }
+    </script>
+</body>
+</html>

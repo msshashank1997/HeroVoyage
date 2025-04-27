@@ -1,0 +1,10 @@
+train_number,train_name,source,destination,departure_time,arrival_time,available_seats,driver_name
+12345,Superfast Express,New Delhi,Chennai,2025-04-21 10:00,2025-04-21 20:00,50,Om Lohia
+23456,Shatabdi Express,Mumbai,Bangalore,2025-04-21 07:00,2025-04-21 14:00,30,Nikhil Bhosle
+34567,Deccan Queen,Pune,Hyderabad,2025-04-21 09:30,2025-04-21 16:00,40,Raja Singh
+45678,Howrah Mail,Kolkatta,New Delhi,2025-04-21 12:00,2025-04-21 18:00,60,Sriram Chatterjee
+56789,Rajdhani Express,Chennai,New Delhi,2025-04-21 13:00,2025-04-21 22:00,70,Rajashekaran
+67890,Duronto Express,Mumbai,Delhi,2025-04-21 15:00,2025-04-21 23:00,20,Anjali Sharma
+78901,Garib Rath,Delhi,Mumbai,2025-04-21 15:00,2025-04-21 23:00,20,Amit Kumar
+89012,Jan Shatabdi,Delhi,Chennai,2025-04-21 16:00,2025-04-21 22:00,80,Priya Verma
+90123,Intercity Express,Delhi,Bangalore,2025-04-21 17:00,2025-04-21 23:00,90,Ravi Kumar
